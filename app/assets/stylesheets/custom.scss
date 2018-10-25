@@ -204,7 +204,32 @@ input {
      border-color: #080808;
 }
 
-.form{
-background-color: #ffb7c5 ;
-// padding: 10px;
+
+form {
+  margin:0 auto;
+  width:300px
+}
+input {
+  margin-bottom:3px;
+  padding:10px;
+  width: 100%;
+  border:1px solid #CCC
+}
+button {
+  padding:10px
+}
+label {
+  cursor:pointer
+}
+#form-switch {
+  display:none
+}
+#register-form {
+  display:none
+}
+#form-switch:checked~#register-form {
+  display:block
+}
+#form-switch:checked~#login-form {
+  display:none
 }

@@ -12,10 +12,8 @@ gem 'rails', '~> 5.1.4'
 gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'actionpack'
-# Use sqlite3 as the database for Active Record
-gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -49,6 +47,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'simplecov'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -60,8 +59,20 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'minitest-reporters', '1.0.5'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'guard-minitest',     '2.3.1'
+end
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Javascript 
 gem 'js_assets'
+
+group :production do
+  gem 'puma', '~> 3.7'
+  gem 'pg', '~> 0.21' 
+end

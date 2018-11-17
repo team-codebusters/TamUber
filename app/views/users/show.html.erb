@@ -15,312 +15,115 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>TAMUber Safety Services</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 60vh;
-        width: fill;
-        overflow: visible;
-       }
      /*       */
      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
+      h1
+      {
+          display: inline;
+          color: black;
+          font-weight: bold;
+          text-align: left;
+          font-size: 2.5em;   
+      }
+      table, td, tr, th {
+        border: 1px solid black;
+        text-align: left;
+        vertical-align: center;
+        padding: 5px;
       }
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-      .pac-controls1 {
-        display: inline-block;
-        padding: 500px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 24px;
-        font-weight: 300;
-        margin-top: 1vh;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-
-      #cart-options {
-        min-width: 50%;
-        display: flex;
-      }
-
-      .cart-status {
-
-        min-width: 25%;
-      }
-     
-      /* Optional: Makes the sample page fill the window. */
-      #floating-panel {
-        box-sizing: border-box;
-
-        display:flex;
-        flex-wrap: ;
-        padding: 1vmax;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-        z-index: 5;
-        background-color: #fff;
-        border: 1px solid #999;
-        font-family: 'Roboto','sans-serif';
-      }
     </style>
   </head>
   <body>
-    <!-- Map Input -->
-    <input id="pac-input" class="controls" type="text" placeholder="Cart Location">
-  
-      <div id='topbar'>
-      <div id="logo">
-        TAMUBer Safety
-      </div>
-      <div id='js'>
-        Javascript Module
-      </div>
-    </div>
-  
-    <div id="floating-panel">
-      <form  style="padding-right:6vw">
-        <label><b>Destination: </b>
-        <select id="destination-select">
-          <option value="A.P. Beutel Health Center, 1264 TAMU, College Station, TX 77843">Student Health Services</option>
-          <option value="Harvey R. 'Bum' Bright Building, College Station, TX 77840">HRBB (Bright Building)</option>
-          <option value="275 Joe Routt Blvd #2240, College Station, TX 77843">Memorial Student Center</option>
-          <option value="Blocker Bldg, 155 Ireland St, College Station, TX 77840">Blocker Building</option>
-          <option value="Appelt Hall, College Station, TX">Appelt Hall</option>
-          <option value="777 Military Mall, College Station, TX 77840">Off-Campus Stop</option>
-        </select>
-        </label>
-      </form>
-      <form>
-        <label><b>Cart Number: </b>
-        <select id="cart-select">
-          <option value="1">1</option>
-        </select>
-        </label>
-      </form>
-    </div>
-    <div id="map"></div>
-    <div id="stats">
-      <div class='stat-container'>
-        <div class='stat-description'>
-          Cart Status
-        </div>
-        <div class='status' id='status-endpoint'>
-          OFF
-        </div>
-      </div>
-      <div class='stat-container'>
-        <div class='stat-description'>
-          Passengers
-        </div>
-        <ol class='passenger-list'>
-          <li class='passenger'>
-            823001144
-            <button id='remove-passenger'>Drop-off</button>
-          </li>
-          <li class='passenger'>
-            823001144
-            <button id='remove-passenger'>Drop-off</button>
-          </li>
-          <li class='passenger'>
-            <button id='add-passenger'>Add</button>
-          </li>
-          <li class='passenger'>
-            <button id='add-passenger'>Add</button>
-          </li>
 
-        </ol>
+    <h1> Weather Data for College Station </h1>
+    
+    <table id="weather_results" cellpadding="100"></table>
 
-      </div>
-      <div class='stat-container'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <button id='begin-route'>Begin Route</button>
-        <button id='stop-route'>Stop Route</button>
-
-      </div>      
-    </div>
+    
+    
     <script>
-      // This will contain the markers as well
-      globalCartHolder = {};
-      var map;
+    // api key for darksky
+    var apikey = "e11ef800943415420f6e9269fb69eb1b"
+    var lat = "30.6280"
+    var long = "-96.3345"
+    jQuery(document).ready(function(){
+    console.log("Ready!");
+    weatherFunction();  // when the page has loaded, run weatherFunction
+    $('#weather_results').show();
+  });
+  function weatherFunction(){
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var url1 = "https://api.darksky.net/forecast/"
 
-      function initMap() {
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {
-            lat: 30.6102331, 
-            lng: -96.3409787
-          }
-        });
-        directionsDisplay.setMap(map);
+// IMPORTANT! UNCOMMENT FOR API TO WORK
+    var html = '';
+    var html2 = '';
 
-
-      // Functions used for input (text, dropdowns)
-      function onDesinationChangeHandler() {
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-      };
-
-      function onCartChangeHandler(e) {
-        map.setZoom(17);
-        map.panTo(globalCartHolder[e.target.value].position);
-        
-      };
-
-      // Create the search box
-      var input = document.getElementById('pac-input');
-      var searchBox = new google.maps.places.SearchBox(input);
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // test data stub
+    var data = {
+      alerts: [{
+          description: " A river flood warning remains in effect for the Navasota River. The Flood Warning continues for The Navasota River Near Normangee * until late tonight...or until the warning is canceled. * At 0800 AM Saturday the stage was 15.3 feet. * Minor flooding is occurring and Minor flooding is forecast. * Flood stage is 15.0 feet. * Forecast...The river will continue to fall to below flood stage later this afternoon. * At 15.0 feet...Minor lowland flooding begins as water escapes the main channel and inundates the flood plain. && Flood Observed Forecast 6 AM Location Stage Stage Day Time Sun Mon Tue Wed Navasota River Normangee 15.0 15.3 Sat 08 AM 14.5 13.1 10.0 7.4 &&"}],
+  
+      currently:{
+          temperature: 85,
+          visibility: 10,
+          windSpeed: 3.78,
+          precipIntensity: 0.22,
+          precipProbability: 0.45,
+          humidity: 0.24
+      }
+    }
+    // IF YOU WANT TO USE API, COMMENT THIS OUT; ELSE uncomment this out
+    // *************************Test Stub*******************
+    html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+        + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
+    $('#weather_results').append(html2);
+    // ******************************************************
     
-      //
-      map.addListener('bounds_changed', function() {
-        searchBox.setBounds(map.getBounds());
-      });
     
-      var markers = [];
-      searchBox.addListener('places_changed', function() {
-        var places = searchBox.getPlaces();
+    // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
+    // *************************API*******************
+    // $.ajax({
+    //     type: "GET",
+    //     url: url1+apikey+"/"+lat+","+long,
+    //     contentType: "application/json",
+    //     success: function(data)
+    //     {
+    //       console.log(data);
+    //       html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+    //           + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+    //           + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+    //           + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+    //           + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+    //           + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+    //           + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
+    //       $('#weather_results').append(html);
 
-        if (places.length == 0) {
-          return;
-        }
-
-        // Clear out the old markers.
-        markers.forEach(function(marker) {
-          marker.setMap(null);
-        });
-        markers = [];
-
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        map.fitBounds(bounds);
-      });
-
-
-        document.getElementById('pac-input').addEventListener('change', onDesinationChangeHandler);
-        document.getElementById('destination-select').addEventListener('change', onDesinationChangeHandler);
-        document.getElementById('cart-select').addEventListener('change', onCartChangeHandler);
-      }
-      // end initMapa
-
-      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        directionsService.route({
-          origin: document.getElementById('pac-input').value,
-          destination: document.getElementById('destination-select').value,
-          travelMode: 'WALKING'
-        }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
-      }
-
-      // New stuff
-  $('#begin-route').click(e => {
-    onBeginRouteHandler(e);
-  })
+    //     }
+    //   });
+    // ******************************************************
+  };
 
 
 
-  $('#stop-route').click(e => {
-    directionsDisplay.set('directions',null);
-    $('#status-endpoint').css('color', '#26cc4d');
-    $('#status-endpoint').text('FREE');
 
-  })
+  
 
-
-  function onBeginRouteHandler(e){
-    var origin = cart.LatLng;
-    var destination = $('#destination-select').val();
-    console.log(origin, destination);
-    directionsService.route({
-      origin: cart.LatLng,
-      destination: destination,
-      travelMode: 'WALKING'
-    }, function(response, status) {
-      if (status === 'OK') {
-        directionsDisplay.setDirections(response);
-        $('#status-endpoint').css('color', '#e2b331');
-        $('#status-endpoint').text('USED');
-
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
-    });
-  }
-
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOZDMtxG5GKcCEgAUyNwNGjhHcRHHfWE4&libraries=places&callback=initMap">
 </script>
 
 </body>

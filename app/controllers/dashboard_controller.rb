@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
 
-  def new
+  def diagnostics
   end
 end

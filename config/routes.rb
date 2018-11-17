@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get    '/try',   to: 'static_pages#try'
+  get    '/dashboard',  to: 'dashboard#new'
   resources :users
 end

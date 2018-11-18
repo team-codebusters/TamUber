@@ -1,12 +1,22 @@
-<% provide(:title, "Checklist")%>
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <h1>Checklist</h1>
-    <p>
-      This will be a checklist for the car. Currently being tested.
-    </p>
-  </body>
-</html>
+<% provide(:title, "Checklist") %>
+
+<h1>This is a Checklist for the Car</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: checklist_path) do |f| %>
+
+      <%= check_box_tag "Monday", "yes" %>
+      <%= label_tag "Monday" %>
+      <%= check_box_tag "Tuesday", "yes" %>
+      <%= label_tag "Tuesday" %>
+      <%= check_box_tag "Wednesday", "yes" %>
+      <%= label_tag "Wednesday" %>
+      <%= check_box_tag "Thursday", "yes" %>
+      <%= label_tag "Thursday" %>
+
+    <%= f.submit "Home", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

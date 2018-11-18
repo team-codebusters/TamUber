@@ -71,8 +71,8 @@
 
     // test data stub
     var data = {
-      alerts: [{
-          description: " A river flood warning remains in effect for the Navasota River. The Flood Warning continues for The Navasota River Near Normangee * until late tonight...or until the warning is canceled. * At 0800 AM Saturday the stage was 15.3 feet. * Minor flooding is occurring and Minor flooding is forecast. * Flood stage is 15.0 feet. * Forecast...The river will continue to fall to below flood stage later this afternoon. * At 15.0 feet...Minor lowland flooding begins as water escapes the main channel and inundates the flood plain. && Flood Observed Forecast 6 AM Location Stage Stage Day Time Sun Mon Tue Wed Navasota River Normangee 15.0 15.3 Sat 08 AM 14.5 13.1 10.0 7.4 &&"}],
+      daily: {
+          summary: " A river flood warning remains in effect for the Navasota River."},
   
       currently:{
           temperature: 85,
@@ -85,37 +85,37 @@
     }
     // IF YOU WANT TO USE API, COMMENT THIS OUT; ELSE uncomment this out
     // *************************Test Stub*******************
-    // html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-    //     + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-    //     + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-    //     + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-    //     + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-    //     + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-    //     + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
-    // $('#weather_results').append(html2);
+    html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+        + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr>';
+    $('#weather_results').append(html2);
     // ******************************************************
     
     
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
-    $.ajax({
-        type: "GET",
-        url: url1+apikey+"/"+lat+","+long,
-        contentType: "application/json",
-        success: function(data)
-        {
-          console.log(data);
-          html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-              + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-              + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-              + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-              + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-              + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-              + '<tr><th>Alerts</th><td>' + data.daily.summary +'</td></tr>';
-          $('#weather_results').append(html);
+    // $.ajax({
+    //     type: "GET",
+    //     url: url1+apikey+"/"+lat+","+long,
+    //     contentType: "application/json",
+    //     success: function(data)
+    //     {
+    //       console.log(data);
+    //       html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+    //           + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+    //           + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+    //           + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+    //           + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+    //           + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+    //           + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr>';
+    //       $('#weather_results').append(html);
 
-        }
-      });
+    //     }
+    //   });
     // ******************************************************
   };
 

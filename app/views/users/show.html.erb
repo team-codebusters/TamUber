@@ -53,7 +53,7 @@
     
     <script>
     // api key for darksky
-    var apikey = "Put API key from google docs here"
+    var apikey = "Put the KEY from Google Doc here"
     var lat = "30.6280"
     var long = "-96.3345"
     jQuery(document).ready(function(){
@@ -85,37 +85,37 @@
     }
     // IF YOU WANT TO USE API, COMMENT THIS OUT; ELSE uncomment this out
     // *************************Test Stub*******************
-    html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-        + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
-    $('#weather_results').append(html2);
+    // html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+    //     + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+    //     + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+    //     + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+    //     + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+    //     + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+    //     + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
+    // $('#weather_results').append(html2);
     // ******************************************************
     
     
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
-    // $.ajax({
-    //     type: "GET",
-    //     url: url1+apikey+"/"+lat+","+long,
-    //     contentType: "application/json",
-    //     success: function(data)
-    //     {
-    //       console.log(data);
-    //       html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-    //           + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-    //           + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-    //           + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-    //           + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-    //           + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-    //           + '<tr><th>Alerts</th><td>' + data.alerts[0].description +'</td></tr>';
-    //       $('#weather_results').append(html);
+    $.ajax({
+        type: "GET",
+        url: url1+apikey+"/"+lat+","+long,
+        contentType: "application/json",
+        success: function(data)
+        {
+          console.log(data);
+          html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+              + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+              + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+              + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+              + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+              + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+              + '<tr><th>Alerts</th><td>' + data.daily.summary +'</td></tr>';
+          $('#weather_results').append(html);
 
-    //     }
-    //   });
+        }
+      });
     // ******************************************************
   };
 

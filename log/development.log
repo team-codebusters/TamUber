@@ -5905,3 +5905,504 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/users/2" for 165.91.13.104 at 2018-11-18 20:16:35 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 165.91.13.104 at 2018-11-18 20:16:37 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aRkCYlKXMWQx4anC/tSkZxzKLaKmv7d2znGUypSRoOjptJJXu24IF5ehTRw/H17GUzPfmo8vhW1fW/4rklzUFA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 165.91.13.104 at 2018-11-18 20:16:38 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 165.91.13.104 at 2018-11-18 20:16:39 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered shared/_shim.html.erb (0.2ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 165.91.13.104 at 2018-11-18 20:16:42 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQXzUcbJj1D5b2LVf3vdWjXajJF+q6JdJs4q116prhoVtREDCkduo3JPc9pwJwbdDFzk4KBKxw0mO6FxBR/Qzg==", "session"=>{"email"=>"angelinajolie@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "angelinajolie@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/checklist
+Completed 302 Found in 79ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/checklist" for 165.91.13.104 at 2018-11-18 20:16:42 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#checklist as HTML
+  Rendering static_pages/checklist.html.erb within layouts/application
+  Rendered static_pages/checklist.html.erb within layouts/application (1.8ms)
+  Rendered shared/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 35.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:16:44 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for 165.91.13.104 at 2018-11-18 20:16:47 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 165.91.13.104 at 2018-11-18 20:16:53 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 165.91.13.104 at 2018-11-18 20:17:14 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DcTwD6gtVAsCZUEvhTOg7+FI6lLyh4tkKBID4Xol6XONaWA6QdRteKQlpfFE+FpOrrEYatsXuX+5OGkAfOidjw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 165.91.13.104 at 2018-11-18 20:17:14 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 165.91.13.104 at 2018-11-18 20:17:16 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 165.91.13.104 at 2018-11-18 20:17:18 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMtDZ4LREIedKROQpUEWBmowe0LlKgSxx44JughDM360e6E1Tl/xdBYJAp+qHc2BU7YTMzvLYeHHe4IcU/VNqg==", "session"=>{"email"=>"angelinajolie@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "angelinajolie@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/checklist
+Completed 302 Found in 79ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/checklist" for 165.91.13.104 at 2018-11-18 20:17:18 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#checklist as HTML
+  Rendering static_pages/checklist.html.erb within layouts/application
+  Rendered static_pages/checklist.html.erb within layouts/application (1.9ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/2" for 165.91.13.104 at 2018-11-18 20:17:20 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 165.91.13.104 at 2018-11-18 20:17:28 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"giIkFHqxuR3PIIxr3ir9Ukar6pgl5RDGfmu9r/1r14ECj7Qhk0iAbmlgaLUf4QfzCVIYoAx1It3vQddO+6ajfQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 165.91.13.104 at 2018-11-18 20:17:28 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 165.91.13.104 at 2018-11-18 20:17:30 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 165.91.13.104 at 2018-11-18 20:17:32 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FdIQEh2BUxS61ReOeQOZEo2Bnt5pMRy0HWvJBTDEzjG5YvJA0Q+y5zH1BoF2X0KVtAf2r7fQeeQdnkKja3Kw5Q==", "session"=>{"email"=>"angelinajolie@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "angelinajolie@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/checklist
+Completed 302 Found in 79ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/checklist" for 165.91.13.104 at 2018-11-18 20:17:32 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#checklist as HTML
+  Rendering static_pages/checklist.html.erb within layouts/application
+  Rendered static_pages/checklist.html.erb within layouts/application (1.8ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/checklist" for 165.91.13.104 at 2018-11-18 20:17:35 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TestController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N/rKNxppEQrq1XJY6LvChAlucq7zYxQjt9OWFYPCLN23V1oC85AoeUyVloYpcDglRpeAltrzJjgm+fz0hQ9YIQ==", "session"=>{"check_windshield"=>"1", "check_tire"=>"0", "check_light"=>"0", "check_gas"=>"0"}, "commit"=>"Continue"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 165.91.13.104 at 2018-11-18 20:17:35 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 165.91.13.104 at 2018-11-18 20:17:37 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 165.91.13.104 at 2018-11-18 20:17:39 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WKA8/MqdnstPcNT+eHMPJtO0UYXYo7jbt9WWJo+oYM30EN6uBhN/OMRQxfF3L9Sh6jI59AZC3Yu3IB2A1B4eGQ==", "session"=>{"email"=>"angelinajolie@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "angelinajolie@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ecc38ed369144c67af86d2a018e3476f.vfs.cloud9.us-west-2.amazonaws.com/checklist
+Completed 302 Found in 79ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/checklist" for 165.91.13.104 at 2018-11-18 20:17:39 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#checklist as HTML
+  Rendering static_pages/checklist.html.erb within layouts/application
+  Rendered static_pages/checklist.html.erb within layouts/application (1.9ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:17:47 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:26:51 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:27:25 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.1ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:28:51 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:06 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.1ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:15 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:17 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.1ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:29 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.1ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:37 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:29:40 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:30:04 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.1ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:34:33 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.3ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:34:42 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.5ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 42ms (Views: 38.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:34:51 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.3ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:34:58 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.3ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 165.91.13.104 at 2018-11-18 20:35:14 +0000
+Cannot render console from 165.91.13.104! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DashboardController#show_stats as HTML
+  [1m[36mVehicleStatus Load (0.2ms)[0m  [1m[34mSELECT  "vehicle_statuses".* FROM "vehicle_statuses" ORDER BY "vehicle_statuses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering dashboard/show_stats.html.haml within layouts/application
+  Rendered dashboard/show_stats.html.haml within layouts/application (2.4ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 48ms (Views: 45.3ms | ActiveRecord: 0.4ms)
+
+

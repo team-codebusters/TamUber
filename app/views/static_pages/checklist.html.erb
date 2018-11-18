@@ -6,14 +6,15 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: checklist_path) do |f| %>
 
-      <%= check_box_tag "Monday", "yes" %>
-      <%= label_tag "Monday" %>
-      <%= check_box_tag "Tuesday", "yes" %>
-      <%= label_tag "Tuesday" %>
-      <%= check_box_tag "Wednesday", "yes" %>
-      <%= label_tag "Wednesday" %>
-      <%= check_box_tag "Thursday", "yes" %>
-      <%= label_tag "Thursday" %>
+    <%= f.label "Cricket" %> <br />
+    <%= f.check_box :check_cricket %> <br />
+    
+       <%= f.label "Badminton" %> <br />
+    <%= f.check_box :check_badminton %> <br />
+        <%= f.label "Tennis" %> <br />
+    <%= f.check_box :check_tennis %> <br />
+        <%= f.label "Football" %> <br />
+    <%= f.check_box :check_football %> <br />
 
     <%= f.submit "Home", class: "btn btn-primary" %>
     <% end %>

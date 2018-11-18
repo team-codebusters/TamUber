@@ -1,2 +1,2 @@
-class VehicleStatus < ApplicationRecord
+class VehicleStatus < ActiveRecord::Base
 end

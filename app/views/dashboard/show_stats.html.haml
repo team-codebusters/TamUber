@@ -1,0 +1,13 @@
+%h1 Vehicle Diagnostics
+
+
+%ul#details{:style => "font-size: 20px;"}
+  %li
+    Tire Pressure:
+    = @vehicle_stats.tire_pressure
+  %li
+    Battery Level:
+    = @vehicle_stats.battery_level
+  %li
+    Lidar Status:
+    = @vehicle_stats.lidar_status

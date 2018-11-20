@@ -1,0 +1,33 @@
+<h1>Vehicle Diagnostics</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+  //jQuery(document).ready(function(){
+  //console.log("Ready!");
+  function update_values(){
+    $('#tire_pressure').html(" Tire Pressure: <%= j (@vehicle_stats.tire_pressure) %>");
+    $('#battery_level').html(" Battery Level: <%= j (@vehicle_stats.battery_level) %>");
+    $('#lidar_status').html(" Lidar Status: <%= j (@vehicle_stats.lidar_status) %>");
+    setTimeout(update_values,5000);
+  }
+  $(document).ready(function(){
+    setTimeout(update_values,5000);
+  });
+</script>
+
+<ul id="details" style="font-size: 20px;">
+  <li id="tire_pressure", data: {source:@vehicle_stats.tire_pressure}>
+    Tire Pressure:
+    <%= @vehicle_stats.tire_pressure %>
+  </li>
+  <li id="battery_level">
+    Battery Level:
+    <%= @vehicle_stats.battery_level %>
+  </li>
+  <li id="lidar_status">
+    Lidar Status:
+    <%= @vehicle_stats.lidar_status %>
+  </li>
+  </ul>
+
+

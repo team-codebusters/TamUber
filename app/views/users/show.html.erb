@@ -114,7 +114,37 @@
     // ******************************************************
   };
   
+  
+  
 </script>
 
+
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <form id="contactform" role="form" action="#" method="POST">
+            <div class="form-group">
+              <h3>Emergency Call</h3>
+            </div>
+            <label>Your number</label>
+             <div class="form-group">
+                 <input class="form-control" type="text" name="userPhone" id="userPhone"
+                        placeholder="(651) 555-7889">
+             </div>
+             <label>Emergency number</label>
+             <div class="form-group">
+                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
+                        placeholder="(651) 555-7889">
+             </div>
+            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
+          </form>
+
+        </div>
+      </div>
+	  </div><!-- /page -->
+	  
+	  
 </body>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>

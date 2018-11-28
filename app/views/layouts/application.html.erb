@@ -8,7 +8,11 @@
     <%= render 'shared/shim' %>
   </head>
   <body>
+    <% if yield(:title) != "Checklist"%></h1>
     <%= render 'shared/header' %>
+    <% else %>
+    <%= render 'shared/header2' %>
+    <% end %>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>

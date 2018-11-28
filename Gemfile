@@ -40,6 +40,12 @@ gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Validate phone numbers easily
+gem 'phony_rails'
+# Twilio REST API.
+gem 'twilio-ruby', '~> 5.0.0'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -51,6 +57,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'simplecov'
   gem 'sqlite3'
+  gem 'mocha'
 end
 
 group :development do
@@ -60,6 +67,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'single_test'
+  gem 'pry-rails'
 end
 
 group :test do

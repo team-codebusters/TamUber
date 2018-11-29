@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get    '/try',   to: 'static_pages#try'
-  get    '/dashboard',  to: 'dashboard#show_stats'
   post '/call', to: 'twilio#call', as: 'call'
   post '/connect/:sales_number', to: 'twilio#connect', as: 'connect'
   resources :users

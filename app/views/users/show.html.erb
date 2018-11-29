@@ -32,25 +32,76 @@
           text-align: left;
           font-size: 2.5em;   
       }
+      
       table, td, tr, th {
         border: 1px solid black;
         text-align: left;
         vertical-align: center;
-        padding: 5px;
       }
+      
+      weather {
+        position: fixed;
+      }
+
+      dashboard{
+        background-color: #777;
+        float: right;
+      }
+      .float {height:300px; margin:0; padding:0; }
+      .left {position:fixed; width:300px;}
+      .right {float:right; width:200px;}
     </style>
   </head>
   <body>
 
-    <h1> Weather Data for College Station </h1>
-    
-    <table id="weather_results" cellpadding="100"></table>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    
-    
-    <script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+      <div class="container">
+        <div id="weather" class="float left">
+          <h1 align="left"> Weather Data for College Station </h1>
+      
+        <table id="weather_results" cellpadding="100"></table>
+        </div>
+        
+        <div id="dashboard" class="float right">
+          <h1 align="right"> Dashboard</h1>
+          <ul align = "right" id="details" style="font-size: 20px;">
+            <li id="tire_pressure">
+              Tire Pressure:   
+              <%= @vehicle_stats.tire_pressure =%>
+            </li>
+            <li id="battery_level">
+              Battery Level:
+              <%= @vehicle_stats.battery_level %>
+            </li>
+            <li id="lidar_status">
+              Lidar Status:
+              <%= @vehicle_stats.lidar_status %>
+            </li>
+          </ul>  
+        </div>
+      </div>
+      
+      <div class="container">
+        
+      </div>
+      
+  <script>
+  jQuery(document).ready(function(){
+  console.log("Ready!");
+  function update_values(){
+      $('#tire_pressure').html(" Tire Pressure: <%= j (@vehicle_stats.tire_pressure) %>");
+      $('#battery_level').html(" Battery Level: <%= j (@vehicle_stats.battery_level) %>");
+      $('#lidar_status').html(" Lidar Status: <%= j (@vehicle_stats.lidar_status) %>");
+      setTimeout(update_values,5000);
+    }
+    $(document).ready(function(){
+      setTimeout(update_values,5000);
+    });
+  </script>
+  
+  <script>
     // api key for darksky
     var apikey = "Put the KEY from Google Doc here"
     var lat = "30.6280"
@@ -113,14 +164,12 @@
     //   });
     // ******************************************************
   };
-  
-  
-  
-</script>
+
+  </script>
 
 
-    <div class="container">
-      <hr>
+  <div class="container">
+    <hr>
       <div class="row">
         <div class="col-md-12">
           <form id="contactform" role="form" action="#" method="POST">
@@ -141,9 +190,8 @@
           </form>
 
         </div>
-      </div>
-	  </div><!-- /page -->
-	  
+    </div>
+	</div><!-- /page -->
 	  
 </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

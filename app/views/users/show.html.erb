@@ -121,7 +121,6 @@
   jQuery(document).ready(function(){
   console.log("Ready!");
   function update_values(){
-      console.log("Running");
       $('#tire_pressure').html("<%= j (@vehicle_stats.tire_pressure) %>");
       $('#battery_level').html("<%= j (@vehicle_stats.battery_level) %>");
       $('#lidar_status').html("<%= j (@vehicle_stats.lidar_status) %>");

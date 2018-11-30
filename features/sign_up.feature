@@ -7,6 +7,16 @@ Scenario: User sees the welcome message
 When I go to the homepage
 Then I should see the welcome message
 
+Scenario: User can click help
+When I go to the homepage
+Then I click help
+Then I should see the help page
+
+Scenario: User can click about
+When I go to the homepage
+Then I click about
+Then I should see the about page
+
   
 Scenario: Signup with Valid Credentials
 Given I go to the homepage
@@ -19,9 +29,9 @@ When I am a new, authenticated user
 # And I fill in "password" with "test123pass"
 # And I fill in "password_confirmation" with "test123pass"
 
-Scenario: Signin with Valid Credentials
-Given I go to the homepage
-When I enter the username and password
+# Scenario: Signin with Valid Credentials
+# Given I go to the homepage
+# When I enter the username and password
 
 
 

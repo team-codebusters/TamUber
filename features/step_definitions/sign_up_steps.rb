@@ -12,7 +12,7 @@ When(/^I go to the homepage$/) do
 end
 
 Then(/^I should see the welcome message$/) do
-  expect(page).to have_content("Welcome to TamUber Driver Safety Interface")
+  expect(page).to have_content("TamUber Driver Safety Interface Home Log in Help Welcome to TamUber Sign up now! Sign in! The TamUber Application by CodeBusters About")
 end
 
 When(/^I click the 'sign up now'$/) do 

@@ -1,12 +1,3 @@
-# Given("I am on Home Page") do
-#   visit root_path
-# end
-
-# When("I click the 'Sign up now") do
-#   # touch("view marked:'Sign up now!'")
-#   pending
-# end
-
 When(/^I go to the homepage$/) do
   visit root_path
 end
@@ -20,6 +11,7 @@ When(/^I click help$/) do
 end
 
 Then(/^I should see the help page$/) do
+  expect(page).to have_title("Help | TamUber")
   expect(page).to have_content("TamUber Driver Safety Interface Home Log in Help Help Please contact us on sachinpuranik99@gmail.com The TamUber Application by CodeBusters About")
 end
 
@@ -53,18 +45,4 @@ end
 
 When(/^I enter the username and password$/) do 
 end 
-
-
-
-
-  # visit '/users/sign_in'
-  # fill_in "user_email", :with => email
-  # fill_in "user_password", :with => password
-  # click_button "Sign in"
-# And I fill in "lastname" with "zhang"
-# And I fill in "email" with "test@test.com"
-# And I fill in "password" with "test123pass"
-# And I fill in "password_confirmation" with "test123pass"
-# And I press "Create my account"
-# Then I should see the welcome message
 

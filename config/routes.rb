@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get    '/try',   to: 'static_pages#try'
   post '/call', to: 'twilio#call', as: 'call'
   post '/connect/:sales_number', to: 'twilio#connect', as: 'connect'
+  get    '/users',   to: 'users#show'
   resources :users
 end

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = User.first()
     @vehicle_stats =  VehicleStatus.first()
     return @user,@vehicle_stats
   end

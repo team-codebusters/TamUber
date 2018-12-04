@@ -2,10 +2,11 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.firstname %>
-      </h1>
+      <h2>
+        <!--Weather Data in College Station-->
+        <!--<%= gravatar_for @user %>-->
+        <!--<%= @user.firstname %>-->
+      </h2>
     </section>
   </aside>
 </div>
@@ -13,6 +14,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -24,42 +26,58 @@
         margin: 0;
         padding: 0;
       }
+
       h1
       {
+          font-family: "Times New Roman";
           display: inline;
           color: black;
           font-weight: bold;
           text-align: left;
           font-size: 2.5em;   
       }
+      h2
+      {
+        font-family: "Times New Roman";
+        background: #590000;
+        color: white;
+      }
       
       table, td, tr, th {
-        border: 2px solid black;
+        /*border: 2px solid black;*/
+        margin-top: 10px;
         text-align: left;
         vertical-align: center;
         padding: 5px
+        /*font-size: 50px;*/
+        font-family: "Times New Roman";
+      }
+      
+      td{
+        font-size: 14px;
       }
       
       container,top{
-        position: absolute;
-        width: 100%;
-        height: 200px;
-        z-index: 15;
-        top: 50%;
-        left: 50%;
-        margin: -100px 0 0 -150px;
-        background: red;
+        /*position: absolute;*/
+        /*width: 100%;*/
+        /*height: 200px;*/
+        /*z-index: 15;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+        /*margin: -100px 0 0 -150px;*/
+        /*background-color: red;*/
       }
       
       .float {
-        height:100%; margin:5; padding:0;
+        /*height:100%; margin:5; padding:0;*/
       }
-      .left {
-        float: left; width:50%;
-      }
-      .right {
-        float:right; width:50%;
-      }
+      /*.left {*/
+      /*  float: left; width:50%;*/
+      /*}*/
+      /*.right {*/
+      /*  margin-top: 45px;*/
+      /*  float:right; width:50%;*/
+      /*}*/
     </style>
   </head>
   <body>
@@ -68,13 +86,13 @@
 
   <div class="top" align="center">
     <div id="weather" class="left">
-      <h1 align="left"> Weather Data for College Station </h1>
-      <table id="weather_results" cellpadding="100"></table>
+      <h2> Weather Data for College Station </h2>
+      <table id="weather_results"></table>
     </div>
     
     <div id="dashboard" class="right">
-      <h1> Dashboard</h1>
-      <table>
+      <h2> Dashboard</h2>
+      <table class="table table-striped">
         <tr>
           <td> Tire Pressure</td>
           <td id="tire_pressure" ><%= @vehicle_stats.tire_pressure =%></td>
@@ -97,7 +115,7 @@
         <div class="col-md-12">
           <form id="contactform" role="form" action="#" method="POST">
             <div class="form-group">
-              <h3>Emergency Call</h3>
+              <h2>Emergency Call</h2>
             </div>
             <label>Your number</label>
              <div class="form-group">
@@ -166,14 +184,15 @@
     }
     // IF YOU WANT TO USE API, COMMENT THIS OUT; ELSE uncomment this out
     // *************************Test Stub*******************
-    html2 += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-        + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr>';
+    html2 += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td></tr>'
+        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td><tr>'
+        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td></tr>'
+        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td></tr>'
+        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td></tr>'
+        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td></tr>'
+        + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
     $('#weather_results').append(html2);
+
     // ******************************************************
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
@@ -184,13 +203,13 @@
     //     success: function(data)
     //     {
     //       console.log(data);
-    //       html += '<tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+    //       html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
     //           + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
     //           + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
     //           + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
     //           + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
     //           + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-    //           + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr>';
+    //           + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
     //       $('#weather_results').append(html);
     //     }
     //   });

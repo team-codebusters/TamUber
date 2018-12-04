@@ -44,6 +44,8 @@ gem 'jquery-rails'
 gem 'phony_rails'
 # Twilio REST API.
 gem 'twilio-ruby', '~> 5.0.0'
+gem 'pry-rails'
+gem 'pry'
 
 
 group :development, :test do
@@ -68,7 +70,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'single_test'
-  gem 'pry-rails'
 end
 
 group :test do

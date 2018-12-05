@@ -43,9 +43,16 @@
         color: white;
       }
       
+      h3
+      {
+        font-family: "Times New Roman";
+        background: #590000;
+        color: white;
+      }
+      
       table, td, tr, th {
         /*border: 2px solid black;*/
-        margin-top: 10px;
+        margin-top: 15px;
         text-align: left;
         vertical-align: center;
         padding: 5px
@@ -57,7 +64,7 @@
         font-size: 14px;
       }
       
-      container,top{
+      .container,top{
         /*position: absolute;*/
         /*width: 100%;*/
         /*height: 200px;*/
@@ -68,16 +75,42 @@
         /*background-color: red;*/
       }
       
-      .float {
-        /*height:100%; margin:5; padding:0;*/
+      #dash {
+        float: right;
+        width:40%;
       }
-      /*.left {*/
-      /*  float: left; width:50%;*/
-      /*}*/
-      /*.right {*/
-      /*  margin-top: 45px;*/
-      /*  float:right; width:50%;*/
-      /*}*/
+      
+      #dashboard {
+        float: right;
+        width:40%;
+      }
+      
+      
+      #contactform {
+        float: left;
+        width:40%;
+      }
+      
+      #ride {
+        margin-top = 200px;
+        padding = 10px;
+      }
+      
+      .float {
+        height:100%; margin:5; padding:0;
+      }
+      .left {
+        /*margin-left: 80px;*/
+        float: left; width:40%;
+        margin-bottom: 10px;
+      }
+      .right {
+        /*margin-right: 80px;*/
+        text-align: right;
+        float:right; width:40%;
+        position: relative;
+      }
+      
     </style>
   </head>
   <body>
@@ -90,9 +123,9 @@
       <table id="weather_results"></table>
     </div>
     
-    <div id="dashboard" class="right">
-      <h2> Dashboard</h2>
-      <table class="table table-striped">
+    <div>
+      <h2 id="dash"> Dashboard</h2>
+      <table class="table table-striped" id="dashboard">
         <tr>
           <td> Tire Pressure</td>
           <td id="tire_pressure" ><%= @vehicle_stats.tire_pressure =%></td>
@@ -109,31 +142,9 @@
     </div>
   </div>
 
-  <div class="container">
-    
-    <hr>
-      <div class="row">
-        <div class="col-md-12">
-          <form id="contactform" role="form" action="#" method="POST">
-            <div class="form-group">
-              <h2>Emergency Call</h2>
-            </div>
-            <label>Your number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="userPhone" id="userPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-             <label>Emergency number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
-          </form>
 
-        </div>
-    </div>
-	  <div id="ride_info" class="right">
+    <!--<hr>-->
+	  <div class="right" id="ride">
       <h2> Ride Information</h2>
       <table class="table table-striped">
         <tr>
@@ -159,6 +170,31 @@
         </tr>
       </table>
     </div>
+
+  <div class="top" align="center">
+    <hr class="left">
+      <div>
+        <div class="col-md-12">
+          <form id="contactform" role="form" action="#" method="POST">
+            <div class="form-group">
+              <h2>Emergency Call</h2>
+            </div>
+            <label>Your number</label>
+             <div class="form-group">
+                 <input class="form-control" type="text" name="userPhone" id="userPhone"
+                        placeholder="(651) 555-7889">
+             </div>
+             <label>Emergency number</label>
+             <div class="form-group">
+                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
+                        placeholder="(651) 555-7889">
+             </div>
+            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
+          </form>
+        </div>
+      </div>
+    
+
 	</div><!-- /page -->
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

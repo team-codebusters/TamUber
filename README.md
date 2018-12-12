@@ -30,3 +30,6 @@ If the tests pass, you'll be ready to run the app in a local server:
 ```
 $ rails server -p $PORT -b $IP
 ```
+
+## Existing Bugs
+Heroku has problems with calling apps

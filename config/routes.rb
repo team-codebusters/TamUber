@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  default_url_options :host => "https://9ea14d51d208404f9708e4cbc8302248.vfs.cloud9.us-east-2.amazonaws.com/"
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
   get    '/checklist',    to: 'static_pages#checklist'
@@ -13,4 +18,5 @@ Rails.application.routes.draw do
   post '/call', to: 'twilio#call', as: 'call'
   post '/connect/:sales_number', to: 'twilio#connect', as: 'connect'
   resources :users
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

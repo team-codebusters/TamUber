@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    attr_accessor :remember_token
+    attr_accessor :remember_token, :activation_token, :reset_token
     before_save { self.email = email.downcase }
     validates :firstname, presence: true, length: { maximum: 50 }
     validates :lastname, presence: true, length: { maximum: 50 }
@@ -21,7 +21,19 @@ class User < ApplicationRecord
     def User.new_token
         SecureRandom.urlsafe_base64
     end
-  
+    
+    #Sets the password reset attribute
+    def create_reset_digest
+        self.reset_token = User.new_token
+        update_attribute(:reset_digest, User.digest(reset_token))
+        update_attribute(:reset_sent_at, Time.zone.now)
+    end
+    
+    #Sends password reset email.
+    def send_password_reset_email
+        UserMailer.password_reset(self).deliver_now
+    end
+    
     # Remembers user in the database for a session that is persistent
     def remember
         self.remember_token = User.new_token
@@ -29,8 +41,13 @@ class User < ApplicationRecord
     end
   
     #Returns true if the token passed matches the digest
-    def authenticated?(remember_token)
-        BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    # def authenticated?(remember_token)
+    #     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    # end
+    def authenticated?(attribute, remember_token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(remember_token)
     end
     
     # Forgets a user.

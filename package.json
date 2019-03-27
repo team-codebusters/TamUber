@@ -1,5 +1,7 @@
 {
   "name": "TamUber",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  }
 }

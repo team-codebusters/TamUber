@@ -119,7 +119,7 @@
 
   <div class="top" align="center">
     
- <a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="original" >COLLEGE STATION WEATHER</a>
+ <a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/?unit=us" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="original" >COLLEGE STATION WEATHER</a>
  <div id="weather" class="left">
       <h2> Weather Data for College Station </h2>
       <table id="weather_results"></table>
@@ -230,9 +230,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
     // api key for darksky
-    var apikey = "Put the KEY from Google Doc here"
-    var lat = "30.6280"
-    var long = "-96.3345"
+    var apikey = "09efe5b76a69d8f9f64dfd9d42ac71f7";
+    var lat = "30.617930";
+    var long = "-96.337648";
     jQuery(document).ready(function(){
     console.log("Ready!");
     weatherFunction();  // when the page has loaded, run weatherFunction
@@ -240,58 +240,62 @@
   });
   function weatherFunction(){
     // Create a request variable and assign a new XMLHttpRequest object to it.
-    var url1 = "https://api.darksky.net/forecast/"
+    var url1 = "https://api.darksky.net/forecast/";
 // IMPORTANT! UNCOMMENT FOR API TO WORK
     var html = '';
-    var html2 = '';
-    // test data stub
-    var data = {
-      daily: {
-          summary: "Rain tomorrow and Monday, with high temperatures falling to 50F"
+    // var html2 = '';
+    // // test data stub
+    // var data = {
+    //   daily: {
+    //       summary: "Rain tomorrow and Monday, with high temperatures falling to 50F"
         
-      },
-      currently:{
-          temperature: 85,
-          visibility: 10,
-          windSpeed: 3.78,
-          precipIntensity: 0.22,
-          precipProbability: 0.45,
-          humidity: 0.24
-      }
-    }
+    //   },
+    //   currently:{
+    //       temperature: 85,
+    //       visibility: 10,
+    //       windSpeed: 3.78,
+    //       precipIntensity: 0.22,
+    //       precipProbability: 0.45,
+    //       humidity: 0.24
+    //   }
+    // }
     // IF YOU WANT TO USE API, COMMENT THIS OUT; ELSE uncomment this out
     // *************************Test Stub*******************
-    html2 += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td></tr>'
-        + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td><tr>'
-        + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td></tr>'
-        + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td></tr>'
-        + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td></tr>'
-        + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td></tr>'
-        + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
-    $('#weather_results').append(html2);
+    
+    // html2 += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td></tr>'
+    //     + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td><tr>'
+    //     + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td></tr>'
+    //     + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td></tr>'
+    //     + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td></tr>'
+    //     + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td></tr>'
+    //     + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
+    // $('#weather_results').append(html2);
 
     // ******************************************************
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
-    // $.ajax({
-    //     type: "GET",
-    //     url: url1+apikey+"/"+lat+","+long,
-    //     contentType: "application/json",
-    //     success: function(data)
-    //     {
-    //       console.log(data);
-    //       html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-    //           + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
-    //           + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-    //           + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
-    //           + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-    //           + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
-    //           + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
-    //       $('#weather_results').append(html);
-    //     }
-    //   });
-    // ******************************************************
-  };
+        var proxy = 'https://cors-anywhere.herokuapp.com/';
+        var apiLinkDS = url1+apikey+"/"+lat+","+long;
+        $.ajax({
+          url: proxy + apiLinkDS,
+          success:function(data) { console.log(data); 
+          html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
+              + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+              + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
+              + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+              + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
+              + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+              + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
+
+          $('#weather_results').append(html);
+            
+            
+          }
+        });
+
+         
+        // ******************************************************
+      };
 
   </script>
 

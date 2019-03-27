@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  default_url_options :host => "https://9ea14d51d208404f9708e4cbc8302248.vfs.cloud9.us-east-2.amazonaws.com/"
+  # TO DO set the heroku url below
+  default_url_options :host => "https://d4107e2da4a1422c9383a7787a664d98.vfs.cloud9.us-east-2.amazonaws.com/"
   get 'password_resets/new'
 
   get 'password_resets/edit'

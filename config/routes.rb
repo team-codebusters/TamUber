@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   # TO DO set the heroku url below
-  default_url_options :host => "https://password111.herokuapp.com/"
+   default_url_options :host => 'static_pages#home'
   get 'password_resets/new'
 
   get 'password_resets/edit'
 
   root   'static_pages#home'
+  
+ 
   get    '/help',    to: 'static_pages#help'
   get    '/checklist',    to: 'static_pages#checklist'
   post   '/checklist',    to: 'test#create'

@@ -9,8 +9,8 @@ When /^they check everything of the checklist$/ do
 
 end
 
-When /^I should not see Tire Pressure, Cooling Liquid, Engine Light, Light$/ do
-    expect(page).to have_selector('i.fas.fa-check', visible: false)
+When /^I should not see Tire Pressure$/ do
+    expect(page).to have_selector('i#tire-pressure', visible: false)
 end
 
 Then /^they cleck continue$/ do

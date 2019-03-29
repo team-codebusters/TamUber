@@ -11,8 +11,55 @@ When(/^I go to the homepage$/) do
   visit root_path
 end
 
+When(/^I am on the login page$/) do
+  visit login_path
+end
+
+When(/^I am on the user page$/) do
+  visit current_user
+end
+
+When(/^I am on the checklist page$/) do
+  visit checklist_path
+end
+
+
+When(/^I should be on the checklist page$/) do
+  visit checklist_path
+end
+
+When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
+
+
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+
+When /^(?:|I )press "([^"]*)"$/ do |button|
+  click_button(button)
+end
+
+Then /^(?:|I )should see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end
+
+Then /^(?:|I )should not see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
+end
+
+
 Then(/^I should see the welcome message$/) do
-  expect(page).to have_content("Welcome to TamUber Driver Safety Interface")
+  expect(page).to have_content("Welcome to TamUber")
 end
 
 When(/^I click the 'sign up now'$/) do 

@@ -1,41 +1,90 @@
 <% provide(:title, "Safety Driver") %>
-
-
-<html>
-<head>
-	<title></title>
-	<meta charset = "utf-8">
-</head>
 <style type="text/css">
-	.buttons{
-	  position: absolute;
-	  top:50%;
-	  left:45%;
-	  
+html, body {
+    margin-right: 0px;
+    width:90%;
+    height: 100%;
+}
+#da{ 
+	position:relative;/*设置父级元素，相对定位*/
 	}
-	.imgw{position: relative;}
-	.words{
-	    font-size: 40px;
-			letter-spacing: 10px;
-			position: absolute;
-			color:#fff;
+#tu,#dh { 
+	position:absolute;/*设置子元素绝对定位*/
+	}
+#dh{ /*设置文字盒子的样式*/
+	top:250px;	/*相对于父级元素，向下移10px*/
+	width:1280px; /*设置文字盒子的宽度，这里设置其和图片宽度一致*/
+	height:200px;
+	line-height:60px;/*设置行高和高度一样，可以实现单行元素，在垂直方向上的居中*/
+	text-align:center;/*设置文字水平居中*/
+	background-color:;/*设置盒子背景颜色为白色*/
+	opacity:1;/*设置背景颜色透明度为0.6*/
+	}
+.container{
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:0;
+  padding-left:0;
+}	
+	
+video {
+  width: 108%;
+  height: auto;
+}
+.video1{
+  width:100%;
+  height:auto;
+  background-size: contain;
+}
+.words1{
+      font-size: 10px;
+			letter-spacing: 15px;
+			color: white;
+			text-align:center;
+			top:10%;
+			left: 30%;
+      }
+.words2{
+      font-size: 20px;
+			letter-spacing: 1px;
+			/*position: absolute;*/
+			text-align:center;
 			top:40%;
-			left: 25%;}
-	.imgw{position: relative;}
+			left: 30%;
+}
+
+
 </style>
+
+<!--<div class="center jumbotron">-->
 <body>
-
-	<div class="imgw">
-		<!--< <video autoplay="autoplay" id="fullscreen_video" loop="loop" muted="muted" preload="metadata" src=""https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174"" alt= "" width="100%">-->
-		    <video autoplay="autoplay" id="fullscreen_video" loop="loop" muted="muted" preload="metadata" width="100%" height="100%"
-      src="https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174">Texas A&amp;M video of bluebonnets across campus</video>
-
-		<div class="words">Welcome to TamUber! 
-		
-		</div>
-		<div class="buttons">
-		<%= link_to "Sign in", login_path, class: "btn btn-lg btn-primary" %>  
-		</div>
-	</div>
+  <!--<h1>Welcome to TamUber</h1>-->
+  <!--<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>-->
+  
+  <section class ="container">
+  <div id="da" style="display: block;" class = "video1">
+  <video autoplay="autoplay" loop="loop" muted="muted" preload="metadata" src="https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174">
+  Texas A&amp;M video of bluebonnets across campus
+  </video>
+  <div id = "dh">
+  <div class="words1">
+  <h1><span>Welcome to</span> Welcome to TamUber</h1>
+  </div>
+  <div class="words2">
+  <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary"%>
+  </div>
+  </div>
+  <!--<div class="row">-->
+  <!--<div class="vertical-center site-name">-->
+  <!--<div class="small-12 small-centered columns">-->
+  
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="time">-->
+  <!--  <span id="weather"> &nbsp; </span><span id="human-time">Sun April 7, 2019 | 4:11 PM CDT-->
+  <!--  </span>-->
+  <!--</div>-->
+  </div>
+  </section>
 </body>
-</html>

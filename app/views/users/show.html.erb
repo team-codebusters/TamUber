@@ -130,15 +130,15 @@
       <table class="table table-striped" id="dashboard">
         <tr>
           <td> Tire Pressure</td>
-          <td id="tire_pressure" ><%= @vehicle_stats.tire_pressure =%></td>
+          <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
         </tr>
         <tr>
           <td>Battery Level</td>
-          <td id="battery_level"><%= @vehicle_stats.battery_level %></td>
+          <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
         </tr>
         <tr>
           <td>Lidar Status</td>
-          <td id="lidar_status"><%= @vehicle_stats.lidar_status %></td>
+          <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
         </tr>
       </table>
     </div>
@@ -216,9 +216,9 @@
   jQuery(document).ready(function(){
   console.log("Ready!");
   function update_values(){
-      $('#tire_pressure').html("<%= j (@vehicle_stats.tire_pressure) %>");
-      $('#battery_level').html("<%= j (@vehicle_stats.battery_level) %>");
-      $('#lidar_status').html("<%= j (@vehicle_stats.lidar_status) %>");
+      $('#tire_pressure').html("<%= j (@vehicle_stats.try(:tire_pressure)) %>");
+      $('#battery_level').html("<%= j (@vehicle_stats.try(:battery_level)) %>");
+      $('#lidar_status').html("<%= j (@vehicle_stats.try(:lidar_status)) %>");
       setTimeout(update_values,5000);
     };
     $(document).ready(function(){

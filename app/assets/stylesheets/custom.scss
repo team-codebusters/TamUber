@@ -71,7 +71,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: s5px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   // color: #777;
@@ -231,5 +231,6 @@ label {
   display:block
 }
 #form-switch:checked~#login-form {
-  display:none
+  display:none;
+  color:red;
 }

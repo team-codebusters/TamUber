@@ -5,12 +5,6 @@ Rails.application.routes.draw do
   root   'static_pages#home'
   
   get 'password_resets/new'
-  
-
-  get 'password_resets/edit', to 
-
-  
-  
  
   get    '/help',    to: 'static_pages#help'
   get    '/checklist',    to: 'static_pages#checklist'

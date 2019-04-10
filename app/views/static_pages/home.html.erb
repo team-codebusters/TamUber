@@ -1,9 +1,41 @@
 <% provide(:title, "Safety Driver") %>
 
-<div class="center jumbotron">
-  <h1>Welcome to TamUber</h1>
-  <!--<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>-->
-  
-  <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary" %>
-  
-</div>
+
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8">
+</head>
+<style type="text/css">
+	.buttons{
+	  position: absolute;
+	  top:50%;
+	  left:45%;
+	  
+	}
+	.imgw{position: relative;}
+	.words{
+	    font-size: 40px;
+			letter-spacing: 10px;
+			position: absolute;
+			color:#fff;
+			top:40%;
+			left: 25%;}
+	.imgw{position: relative;}
+</style>
+<body>
+
+	<div class="imgw">
+		<!--< <video autoplay="autoplay" id="fullscreen_video" loop="loop" muted="muted" preload="metadata" src=""https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174"" alt= "" width="100%">-->
+		    <video autoplay="autoplay" id="fullscreen_video" loop="loop" muted="muted" preload="metadata" width="100%" height="100%"
+      src="https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174">Texas A&amp;M video of bluebonnets across campus</video>
+
+		<div class="words">Welcome to TamUber! 
+		
+		</div>
+		<div class="buttons">
+		<%= link_to "Sign in", login_path, class: "btn btn-lg btn-primary" %>  
+		</div>
+	</div>
+</body>
+</html>

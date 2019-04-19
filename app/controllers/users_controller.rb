@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
 
   def show_stats
     @vehicle_stats =  VehicleStatus.first()

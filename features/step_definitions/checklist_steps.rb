@@ -19,7 +19,7 @@ end
 
 
 Then /^I should be on profile page$/ do
-    '/users'
+
 #   visit users_path
-#   expect(page).to have_title('Checklist | TamUber')
+  expect(page).to have_title('ricky | TamUber')
 end

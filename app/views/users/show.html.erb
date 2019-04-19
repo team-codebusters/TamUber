@@ -64,15 +64,9 @@
         font-size: 14px;
       }
       
-      .container,top{
-        /*position: absolute;*/
-        /*width: 100%;*/
-        /*height: 200px;*/
-        /*z-index: 15;*/
-        /*top: 50%;*/
-        /*left: 50%;*/
-        /*margin: -100px 0 0 -150px;*/
-        /*background-color: red;*/
+      .top{
+          margin-top:0px;
+          padding-top:22px;
       }
       
       #dash {
@@ -111,6 +105,12 @@
         position: relative;
       }
       
+      .navbar, .navbar-fixed-top, .navbar-inverse{
+        background-color:#500000;
+        border-color:#500000;
+        margin-bottom:0px;
+      }
+      
     </style>
   </head>
   <body>
@@ -118,8 +118,9 @@
 
 
   <div class="top" align="center">
-    
- <a class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/?unit=us" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="original" >COLLEGE STATION WEATHER</a>
+      <a style="width:100%" class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="ruby" data-basecolor="#500000" >
+        COLLEGE STATION WEATHER</a>    
+
  <div id="weather" class="left">
       <h2> Weather Data for College Station </h2>
       <table id="weather_results"></table>
@@ -130,15 +131,15 @@
       <table class="table table-striped" id="dashboard">
         <tr>
           <td> Tire Pressure</td>
-          <td id="tire_pressure" ><%= @vehicle_stats.tire_pressure =%></td>
+          <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
         </tr>
         <tr>
           <td>Battery Level</td>
-          <td id="battery_level"><%= @vehicle_stats.battery_level %></td>
+          <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
         </tr>
         <tr>
           <td>Lidar Status</td>
-          <td id="lidar_status"><%= @vehicle_stats.lidar_status %></td>
+          <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
         </tr>
       </table>
     </div>
@@ -216,9 +217,9 @@
   jQuery(document).ready(function(){
   console.log("Ready!");
   function update_values(){
-      $('#tire_pressure').html("<%= j (@vehicle_stats.tire_pressure) %>");
-      $('#battery_level').html("<%= j (@vehicle_stats.battery_level) %>");
-      $('#lidar_status').html("<%= j (@vehicle_stats.lidar_status) %>");
+      $('#tire_pressure').html("<%= j (@vehicle_stats.try(:tire_pressure)) %>");
+      $('#battery_level').html("<%= j (@vehicle_stats.try(:battery_level)) %>");
+      $('#lidar_status').html("<%= j (@vehicle_stats.try(:lidar_status)) %>");
       setTimeout(update_values,5000);
     };
     $(document).ready(function(){

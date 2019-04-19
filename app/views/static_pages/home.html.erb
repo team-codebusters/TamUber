@@ -8,18 +8,13 @@ html, body {
 #da{ 
 	position:relative;/*设置父级元素，相对定位*/
 	}
-#tu,#dh { 
+#dh { 
 	position:absolute;/*设置子元素绝对定位*/
-	}
-#dh{ /*设置文字盒子的样式*/
-	top:250px;	/*相对于父级元素，向下移10px*/
-	width:1280px; /*设置文字盒子的宽度，这里设置其和图片宽度一致*/
-	height:200px;
-	line-height:60px;/*设置行高和高度一样，可以实现单行元素，在垂直方向上的居中*/
-	text-align:center;/*设置文字水平居中*/
-	background-color:;/*设置盒子背景颜色为白色*/
-	opacity:1;/*设置背景颜色透明度为0.6*/
-	}
+	text-align:center;
+  top: 25%;
+	width:108%; /*设置文字盒子的宽度，这里设置其和图片宽度一致*/
+	    /*height:200px;*/
+}
 .container{
   margin-right:auto;
   margin-left:auto;
@@ -34,13 +29,12 @@ video {
 .video1{
   width:100%;
   height:auto;
-  background-size: contain;
+  background-size:;
 }
 .words1{
       font-size: 10px;
 			letter-spacing: 15px;
 			color: white;
-			text-align:center;
 			top:10%;
 			left: 30%;
       }
@@ -48,18 +42,14 @@ video {
       font-size: 20px;
 			letter-spacing: 1px;
 			/*position: absolute;*/
-			text-align:center;
-			top:40%;
-			left: 30%;
+			display: flex;
+      align-items: center;
+      justify-content: center;
 }
 
 
 </style>
-
-<!--<div class="center jumbotron">-->
 <body>
-  <!--<h1>Welcome to TamUber</h1>-->
-  <!--<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>-->
   
   <section class ="container">
   <div id="da" style="display: block;" class = "video1">
@@ -70,9 +60,9 @@ video {
   <div class="words1">
   <h1><span>Welcome to</span> Welcome to TamUber</h1>
   </div>
-  <div class="words2">
+  <center class="words2">
   <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary"%>
-  </div>
+  </center>
   </div>
   <!--<div class="row">-->
   <!--<div class="vertical-center site-name">-->

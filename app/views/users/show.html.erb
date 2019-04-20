@@ -12,15 +12,20 @@
 </div>
 
 <!DOCTYPE html>
+
 <html>
   <head>
+        
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    　　<meta name="viewport" content="width=device-width, initial-scale=1" />
+　　<!--<link rel="stylesheet" type="text/css"-->
+　　<!--　　media="screen and (max-device-width: 400px)"-->
+　　<!--　　href="tinyScreen.css" />-->
+
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-     /*       */
+          
       html, body {
         height: 100%;
         margin: 0;
@@ -36,19 +41,14 @@
           text-align: left;
           font-size: 2.5em;   
       }
-      h2
+      h2,h3
       {
         font-family: "Times New Roman";
         background: #590000;
         color: white;
       }
       
-      h3
-      {
-        font-family: "Times New Roman";
-        background: #590000;
-        color: white;
-      }
+      
       
       table, td, tr, th {
         /*border: 2px solid black;*/
@@ -63,10 +63,66 @@
       td{
         font-size: 14px;
       }
+
+    @media screen and (min-width: 0px) and (max-width: 700px) {
+      
+
       
       .top{
+          width:100%;
+          margin-top:140px;
+      }
+      .navbar, .navbar-fixed-top, .navbar-inverse{
+        background-color:#500000;
+        border-color:#500000;
+        margin-bottom: 50px;
+      }
+      
+      #dash {
+        width:100%;
+      }
+      
+      #weather{
+
+        width:100%;
+        margin-bottom: 10px;
+      }
+      
+      #Em_contact{
+
+          width:100%;
           margin-top:0px;
           padding-top:22px;
+      }
+      
+      #EM-form {
+        width:100%;
+        margin-left:0px;
+        margin-right:0px;
+        padding-left:0px;
+        padding-right:0px;
+      }
+      
+      
+      #ride {
+        margin-top = 200px;
+        padding = 10px;
+        text-align: right;
+        width:100%;
+        position: relative;
+      }
+    }
+
+    @media screen and (min-width: 701px) and (max-width: 3000px) {
+  
+       .top{
+          margin-top:0px;
+          padding-top:5px;
+      }
+      .navbar, .navbar-fixed-top, .navbar-inverse{
+        background-color:#500000;
+        border-color:#500000;
+        margin-bottom:0px;
       }
       
       #dash {
@@ -74,80 +130,81 @@
         width:40%;
       }
       
-      #dashboard {
-        float: right;
+      #weather{
+        float: left; 
         width:40%;
+        margin-bottom: 10px;
       }
       
+      #Em_contact{
+          float:left;
+          margin-top:0px;
+          padding-top:22px;
+          
+      }
       
       #contactform {
         float: left;
         width:40%;
       }
       
+      #EM-form {
+        width:100%;
+        margin-left:0px;
+        margin-right:0px;
+        padding-left:0px;
+        padding-right:0px;
+        text-align:center;
+      }
+      
       #ride {
         margin-top = 200px;
         padding = 10px;
-      }
-      
-      .float {
-        height:100%; margin:5; padding:0;
-      }
-      .left {
-        /*margin-left: 80px;*/
-        float: left; width:40%;
-        margin-bottom: 10px;
-      }
-      .right {
-        /*margin-right: 80px;*/
         text-align: right;
         float:right; width:40%;
         position: relative;
       }
-      
-      .navbar, .navbar-fixed-top, .navbar-inverse{
-        background-color:#500000;
-        border-color:#500000;
-        margin-bottom:0px;
-      }
-      
+}
+
     </style>
   </head>
   <body>
 
-
-
   <div class="top" align="center">
       <a style="width:100%" class="weatherwidget-io" href="https://forecast7.com/en/30d63n96d33/college-station/" data-label_1="COLLEGE STATION" data-label_2="WEATHER" data-theme="ruby" data-basecolor="#500000" >
         COLLEGE STATION WEATHER</a>    
-
- <div id="weather" class="left">
-      <h2> Weather Data for College Station </h2>
-      <table id="weather_results"></table>
-    </div>
-    
-    <div>
-      <h2 id="dash"> Dashboard</h2>
-      <table class="table table-striped" id="dashboard">
-        <tr>
-          <td> Tire Pressure</td>
-          <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
-        </tr>
-        <tr>
-          <td>Battery Level</td>
-          <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
-        </tr>
-        <tr>
-          <td>Lidar Status</td>
-          <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
-        </tr>
-      </table>
-    </div>
   </div>
+  
+  
+  
+  
+  <div id="weather">
+        <h2> Weather Data for College Station </h2>
+        <table id="weather_results"></table>
+  </div>
+    
+    
+  <div id="dash">
+    <h2 > Dashboard</h2>
+    <table class="table table-striped" >
+      <tr>
+        <td> Tire Pressure</td>
+        <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
+      </tr>
+      <tr>
+        <td>Battery Level</td>
+        <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
+      </tr>
+      <tr>
+        <td>Lidar Status</td>
+        <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
+      </tr>
+    </table>
+  </div>
+  
 
 
-    <!--<hr>-->
-	  <div class="right" id="ride">
+	  <div id="ride">
       <h2> Ride Information</h2>
       <table class="table table-striped">
         <tr>
@@ -174,32 +231,28 @@
       </table>
     </div>
 
-  <div class="top" align="center">
-    <hr class="left">
-      <div>
-        <div class="col-md-12">
-          <form id="contactform" role="form" action="#" method="POST">
-            <div class="form-group">
-              <h2>Emergency Call</h2>
-            </div>
-            <label>Your number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="userPhone" id="userPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-             <label>Emergency number</label>
-             <div class="form-group">
-                 <input class="form-control" type="text" name="salesPhone" id="salesPhone"
-                        placeholder="(651) 555-7889">
-             </div>
-            <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
-          </form>
-        </div>
-      </div>
-    
 
-	</div><!-- /page -->
-	
+    <div id='contactform' >
+      
+      <form id = "EM-form"role="form" action="#" method="POST">
+        <div class="form-group">
+        <h2>Emergency Call</h2>
+        </div>
+    <label>Your number</label>
+       <div class="form-group">
+         <input class="form-control" type="text" name="userPhone" id="userPhone"
+                placeholder="(651) 555-7889">
+       </div>
+    <label>Emergency number</label>
+       <div class="form-group">
+         <input class="form-control" type="text" name="salesPhone" id="salesPhone"
+                placeholder="(651) 555-7889">
+       </div>
+    <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
+      </form>
+  	</div>
+
+
 	<script>
 !function(d,s,id)
 {

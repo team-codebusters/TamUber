@@ -327,7 +327,7 @@
         var apiLinkDS = url1+apikey+"/"+lat+","+long;
         
         $.ajax({
-          url: apiLinkDS,
+          url: proxy + apiLinkDS,
           success:function(data) { console.log(data); 
           html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
               + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'

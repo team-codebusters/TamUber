@@ -190,7 +190,7 @@
       
       <tr>
         <td> Since last update</td>
-        <td id="time_diff" ><%= @vehicle_stats['time']%></td>
+        <td id="time_diff" ><%= @diff_time%></td>
       </tr>
       <tr>
         <td> Tire Pressure</td>
@@ -294,7 +294,7 @@
                 var ss = Math.floor(msec / 1000);
                 msec -= ss * 1000
                   
-                $('#time_diff').html("Hour:"+ hh +"Minute:" + mm + "Second:"+ss); 
+                $('#time_diff').html("Hour:"+ hh +" Minute:" + mm + " Second:"+ss); 
                 $('#tire_pressure').html( data1['tire pressure']);
                 $('#battery_level').html( data1['battery']);
                 $('#lidar_status').html( data1['lidar status']);

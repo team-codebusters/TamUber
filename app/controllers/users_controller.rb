@@ -17,13 +17,10 @@ class UsersController < ApplicationController
     past_array = result['time'].split('_')
     past = Time.new(past_array[0], past_array[1], past_array[2], past_array[3], past_array[4], past_array[5])
     diff = now - past
-    @diff_time = "Hour:%d Minute:%d Second:%d" % [diff / 3600, diff / 60 % 60, diff % 60]
+    @diff_time = "Hour:%d Minute:%d Second:%d" % [diff/3600, diff / 60 % 60, diff % 60]
     
 
     @vehicle_stats = {"tire_pressure"=> result['tire pressure'], "battery_level"=>result['battery'], "lidar_status"=> result['lidar status'], "time"=> result['time']}
-    
-    
-    
     return @user,@vehicle_stats,@diff_time
   end
 

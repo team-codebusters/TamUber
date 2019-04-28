@@ -1,8 +1,22 @@
+
+require 'json'
+require 'net/http'
+
+
+
 class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @vehicle_stats =  VehicleStatus.first()
+    # @vehicle_stats =  VehicleStatus.first()
+    
+    source = 'http://47.218.218.78:8080/car_info.json'
+    result = JSON.parse(Net::HTTP.get_response(URI.parse(source)).body)
+    
+    @vehicle_stats = {"tire_pressure"=> result['tire pressure'], "battery_level"=>result['battery'], "lidar_status"=> result['lidar status'], "time"=> result['time']}
+    
+    
+    
     return @user,@vehicle_stats
   end
 
@@ -24,9 +38,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def show_stats
-    @vehicle_stats =  VehicleStatus.first()
-  end  
 
 
   private

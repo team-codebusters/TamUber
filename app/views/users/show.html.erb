@@ -189,15 +189,15 @@
     <table class="table table-striped" >
       <tr>
         <td> Tire Pressure</td>
-        <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
+        <td id="tire_pressure" ><%= @vehicle_stats['tire_pressure']%></td>
       </tr>
       <tr>
         <td>Battery Level</td>
-        <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
+        <td id="battery_level"><%= @vehicle_stats['battery_level'] %></td>
       </tr>
       <tr>
         <td>Lidar Status</td>
-        <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
+        <td id="lidar_status"><%= @vehicle_stats['lidar_status'] %></td>
       </tr>
     </table>
   </div>
@@ -261,30 +261,40 @@
     {js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);
       
     }
-  
 }(document,'script','weatherwidget-io-js');
 </script>
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script>
-  jQuery(document).ready(function(){
-  console.log("Ready!");
-  function update_values(){
-      $('#tire_pressure').html("<%= j (@vehicle_stats.try(:tire_pressure)) %>");
-      $('#battery_level').html("<%= j (@vehicle_stats.try(:battery_level)) %>");
-      $('#lidar_status').html("<%= j (@vehicle_stats.try(:lidar_status)) %>");
-      setTimeout(update_values,5000);
-    };
-    $(document).ready(function(){
-      setTimeout(update_values,5000);
-    });
-  });
-  </script>
+
+  
+        <script type = "text/javascript" language = "javascript">
+        $(document).ready(function() {
+			
+            function update_values(){
+                      var proxy = 'https://cors-anywhere.herokuapp.com/';
+                      $.ajax({
+                      url: proxy + 'http://47.218.218.78:8080/car_info.json',
+                      success:function(data1) { console.log(data1); 
+                          
+                        $('#tire_pressure').html( data1['tire pressure']);
+                          $('#battery_level').html( data1['battery']);
+                          $('#lidar_status').html( data1['lidar status']);
+                      }
+                      });
+              };
+            $(document).ready(function(){
+            setInterval(update_values,1000);
+            });
+             
+            });
+      </script>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+  
   <script>
     // api key for darksky
-    var apikey = "09efe5b76a69d8f9f64dfd9d42ac71f7";
+    var apikey = "07859817882e1a3b466848964a578187";
     var lat = "30.617930";
     var long = "-96.337648";
     jQuery(document).ready(function(){
@@ -292,11 +302,13 @@
     weatherFunction();  // when the page has loaded, run weatherFunction
     $('#weather_results').show();
   });
+  
+  
   function weatherFunction(){
     // Create a request variable and assign a new XMLHttpRequest object to it.
-    var url1 = "https://api.darksky.net/forecast/";
+    
 // IMPORTANT! UNCOMMENT FOR API TO WORK
-    var html = '';
+
     // var html2 = '';
     // // test data stub
     // var data = {
@@ -328,6 +340,8 @@
     // ******************************************************
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
+        var url1 = "https://api.darksky.net/forecast/";
+        var html = '';
         var proxy = 'https://cors-anywhere.herokuapp.com/';
         var apiLinkDS = url1+apikey+"/"+lat+","+long;
         $.ajax({
@@ -342,12 +356,8 @@
               + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
 
           $('#weather_results').append(html);
-            
-            
           }
         });
-
-         
         // ******************************************************
       };
 

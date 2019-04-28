@@ -1,8 +1,24 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+
+<style type = "text/css">
+    html, body {
+        /*height: 100%;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        background-image: url(http://2.bp.blogspot.com/-OPYxCQCc4ao/UDBTISXA42I/AAAAAAAAAgk/smpKqpavnSs/s1600/tamu-1.jpg);
+        background-size: cover;
+      }
+</style>
+
+
+
+
+
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style = "background:white; 
+  opacity: 0.85;margin-top:40px">
+    <h1>Sign up</h1>
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -23,5 +39,8 @@
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
+    <h1> 
+    </h1>
   </div>
 </div>
+

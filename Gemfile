@@ -88,6 +88,6 @@ gem 'js_assets'
 
 group :production do
   gem 'puma', '~> 3.7'
-  # gem 'pg', '~> 0.21' 
+  gem 'pg', '~> 0.21' 
 end
 gem 'pg'

@@ -1,13 +1,27 @@
 <% provide(:title, "Forgot password") %>
-<h1>Forgot password</h1>
+
+<style type = "text/css">
+    html, body {
+        /*height: 100%;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        background-image: url(http://2.bp.blogspot.com/-OPYxCQCc4ao/UDBTISXA42I/AAAAAAAAAgk/smpKqpavnSs/s1600/tamu-1.jpg);
+        background-size: cover;
+      }
+</style>
+
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style = "background:#e2e1e0;
+  opacity: 0.8; margin-top: 50px">
+    <h1 style = "font-size:32px">Forgot Password</h1>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
+    <h1> 
+    </h1>
   </div>
 </div>

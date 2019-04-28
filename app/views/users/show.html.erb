@@ -1,5 +1,5 @@
 <% provide(:title, @user.firstname) %>
-<div class="row">
+<div class="row" style = "margin:-20px">
   <aside class="col-md-4">
     <section class="user_info">
       <h2>
@@ -27,9 +27,11 @@
     <style>
           
       html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        /*height: 100%;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        background-image: url(http://2.bp.blogspot.com/-OPYxCQCc4ao/UDBTISXA42I/AAAAAAAAAgk/smpKqpavnSs/s1600/tamu-1.jpg);
+        background-size: cover;
       }
 
       h1
@@ -52,7 +54,7 @@
       
       table, td, tr, th {
         /*border: 2px solid black;*/
-        margin-top: 15px;
+        margin-top: 5px;
         text-align: left;
         vertical-align: center;
         padding: 5px
@@ -185,7 +187,7 @@
     
     
   <div id="dash">
-    <h2 > Dashboard</h2>
+    <h2>Dashboard</h2>
     <table class="table table-striped" >
       
       <tr>
@@ -196,7 +198,7 @@
         <td> Tire Pressure</td>
         <td id="tire_pressure" ><%= @vehicle_stats['tire_pressure']%></td>
       </tr>
-      <tr>
+      <tr style = "background: white">
         <td>Battery Level</td>
         <td id="battery_level"><%= @vehicle_stats['battery_level'] %></td>
       </tr>
@@ -218,7 +220,7 @@
           <td> Destination </td>
         </tr>
         
-        <tr>
+        <tr style = "background: white">
           <td> Alice </td>
           <td> ETB </td>
           <td> HRBB </td>
@@ -228,7 +230,7 @@
           <td> MEOB </td>
           <td> MSC </td>
         </tr>
-        <tr>
+        <tr style = "background: white">
           <td> Mary </td>
           <td> WEB </td>
           <td> Evans </td>
@@ -237,25 +239,20 @@
     </div>
 
 
-    <div id='contactform' >
-      
-      <form id = "EM-form"role="form" action="#" method="POST">
-        <div class="form-group">
-        <h2>Emergency Call</h2>
-        </div>
-    <label>Your number</label>
-       <div class="form-group">
-         <input class="form-control" type="text" name="userPhone" id="userPhone"
-                placeholder="(651) 555-7889">
-       </div>
-    <label>Emergency number</label>
-       <div class="form-group">
-         <input class="form-control" type="text" name="salesPhone" id="salesPhone"
-                placeholder="(651) 555-7889">
-       </div>
-    <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
-      </form>
-  	</div>
+    <div id="contactform">
+      <h2> Contact Information</h2>
+      <table class="table table-striped">
+        <tr>
+          <td> Administrative</td>
+          <td> (979) 317-2000 </td>
+        </tr>
+        
+        <tr style = "background: white">
+          <td> UPD </td>
+          <td> (979) 845-2345 </td>
+        </tr>
+      </table>
+    </div>
 
 
 	<script>
@@ -366,11 +363,11 @@
           url: proxy + apiLinkDS,
           success:function(data) { console.log(data); 
           html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-              + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+              + '<tr style = "background: white"><th>Humidity</th><td>' + data.currently.humidity + '</td>'
               + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-              + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+              + '<tr style = "background: white"><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
               + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-              + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+              + '<tr style = "background: white"><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
               + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
 
           $('#weather_results').append(html);

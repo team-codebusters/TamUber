@@ -1,5 +1,5 @@
 <% provide(:title, @user.firstname) %>
-<div class="row">
+<div class="row" style = "margin:-20px">
   <aside class="col-md-4">
     <section class="user_info">
       <h2>
@@ -27,9 +27,11 @@
     <style>
           
       html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        /*height: 100%;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        background-image: url(http://2.bp.blogspot.com/-OPYxCQCc4ao/UDBTISXA42I/AAAAAAAAAgk/smpKqpavnSs/s1600/tamu-1.jpg);
+        background-size: cover;
       }
 
       h1
@@ -52,7 +54,7 @@
       
       table, td, tr, th {
         /*border: 2px solid black;*/
-        margin-top: 15px;
+        margin-top: 5px;
         text-align: left;
         vertical-align: center;
         padding: 5px
@@ -185,18 +187,23 @@
     
     
   <div id="dash">
-    <h2 > Dashboard</h2>
+    <h2>Dashboard</h2>
     <table class="table table-striped" >
-      <div>Last update:<%= '%.0f' %@vehicle_stats['time'] =%> minutes</div>
+
       <tr>
+        <td> Since last update</td>
+        <td id="time_diff" ><%= @diff_time%></td>
+      </tr>
+      <tr style = "background: white">
         <td> Tire Pressure</td>
-        <td id="tire_pressure" ><%= @vehicle_stats['tire_pressure'] =%></td>
+
+        <td id="tire_pressure" ><%= @vehicle_stats['tire_pressure']%></td>
       </tr>
       <tr>
         <td>Battery Level</td>
         <td id="battery_level"><%= @vehicle_stats['battery_level'] %></td>
       </tr>
-      <tr>
+      <tr style = "background: white">
         <td>Lidar Status</td>
         <td id="lidar_status"><%= @vehicle_stats['lidar_status'] %></td>
       </tr>
@@ -214,7 +221,7 @@
           <td> Destination </td>
         </tr>
         
-        <tr>
+        <tr style = "background: white">
           <td> Alice </td>
           <td> ETB </td>
           <td> HRBB </td>
@@ -224,7 +231,7 @@
           <td> MEOB </td>
           <td> MSC </td>
         </tr>
-        <tr>
+        <tr style = "background: white">
           <td> Mary </td>
           <td> WEB </td>
           <td> Evans </td>
@@ -233,25 +240,20 @@
     </div>
 
 
-    <div id='contactform' >
-      
-      <form id = "EM-form"role="form" action="#" method="POST">
-        <div class="form-group">
-        <h2>Emergency Call</h2>
-        </div>
-    <label>Your number</label>
-       <div class="form-group">
-         <input class="form-control" type="text" name="userPhone" id="userPhone"
-                placeholder="(651) 555-7889">
-       </div>
-    <label>Emergency number</label>
-       <div class="form-group">
-         <input class="form-control" type="text" name="salesPhone" id="salesPhone"
-                placeholder="(651) 555-7889">
-       </div>
-    <button type="Call Emergency!!" class="btn btn-default">Contact Emergency</button>
-      </form>
-  	</div>
+    <div id="contactform">
+      <h2> Contact Information</h2>
+      <table class="table table-striped">
+        <tr>
+          <td> Administrative</td>
+          <td> (979) 317-2000 </td>
+        </tr>
+        
+        <tr style = "background: white">
+          <td> UPD </td>
+          <td> (979) 845-2345 </td>
+        </tr>
+      </table>
+    </div>
 
 
 	<script>
@@ -262,30 +264,57 @@
     {js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);
       
     }
-  
 }(document,'script','weatherwidget-io-js');
 </script>
 	
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script>
-  jQuery(document).ready(function(){
-  console.log("Ready!");
-  function update_values(){
-      $('#tire_pressure').html("<%= j (@vehicle_stats.try(:tire_pressure)) %>");
-      $('#battery_level').html("<%= j (@vehicle_stats.try(:battery_level)) %>");
-      $('#lidar_status').html("<%= j (@vehicle_stats.try(:lidar_status)) %>");
-      setTimeout(update_values,5000);
-    };
-    $(document).ready(function(){
-      setTimeout(update_values,5000);
-    });
-  });
-  </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+<script type = "text/javascript" language = "javascript">
+  $(document).ready(function() {
+
+      function update_values(){
+                var proxy = 'https://cors-anywhere.herokuapp.com/';
+                
+                
+                    $.ajax({
+                    url: proxy + 'http://47.218.218.78:8080/car_info.json',
+                    success:function(data1) { console.log(data1); 
+                    
+                    
+                    past_str = data1['time'].split("_");
+                    var past = new Date(past_str[0], past_str[1] - 1, past_str[2], past_str[3], past_str[4],past_str[5]).getTime();
+                    var now = new Date().getTime();
+
+                    var msec = now - past;
+                    
+                    var hh = Math.floor(msec / 1000 / 60 / 60);
+                    msec -= hh * 1000 * 60 * 60;
+                    var mm = Math.floor(msec / 1000 / 60);
+                    msec -= mm * 1000 * 60;
+                    var ss = Math.floor(msec / 1000);
+                    msec -= ss * 1000
+                      
+                    $('#time_diff').html("Hour:"+ hh +" Minute:" + mm + " Second:"+ss); 
+                    $('#tire_pressure').html( data1['tire pressure']);
+                    $('#battery_level').html( data1['battery']);
+                    $('#lidar_status').html( data1['lidar status']);
+                    setTimeout(update_values,6000);}
+                    });
+              
+                
+        };
+      $(document).ready(function(){
+      setTimeout(update_values,6000);
+      });
+       
+      });
+ </script>
+  
+  
   <script>
     // api key for darksky
-    var apikey = "09efe5b76a69d8f9f64dfd9d42ac71f7";
+    var apikey = "07859817882e1a3b466848964a578187";
     var lat = "30.617930";
     var long = "-96.337648";
     jQuery(document).ready(function(){
@@ -293,11 +322,13 @@
     weatherFunction();  // when the page has loaded, run weatherFunction
     $('#weather_results').show();
   });
+  
+  
   function weatherFunction(){
     // Create a request variable and assign a new XMLHttpRequest object to it.
-    var url1 = "https://api.darksky.net/forecast/";
+    
 // IMPORTANT! UNCOMMENT FOR API TO WORK
-    var html = '';
+
     // var html2 = '';
     // // test data stub
     // var data = {
@@ -329,26 +360,25 @@
     // ******************************************************
     // IF YOU WANT TO USE API, UNCOMMENT THIS OUT; ELSE comment this out
     // *************************API*******************
+        var url1 = "https://api.darksky.net/forecast/";
+        var html = '';
         var proxy = 'https://cors-anywhere.herokuapp.com/';
         var apiLinkDS = url1+apikey+"/"+lat+","+long;
+        
         $.ajax({
           url: proxy + apiLinkDS,
           success:function(data) { console.log(data); 
           html += '<table class="table table-striped"><tr><th>Temperature(Farenheit)</th><td>' + data.currently.temperature + '</th></td>'
-              + '<tr><th>Humidity</th><td>' + data.currently.humidity + '</td>'
+              + '<tr style = "background: white"><th>Humidity</th><td>' + data.currently.humidity + '</td>'
               + '<tr><th>Probability of Rain(%)</th><td>' + data.currently.precipProbability * 100 + ' %' + '</td>'
-              + '<tr><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
+              + '<tr style = "background: white"><th>Intensity of Rain</th><td>' + data.currently.precipIntensity + '</td>'
               + '<tr><th>Visibility</th><td>' + data.currently.visibility + '</td>'
-              + '<tr><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
+              + '<tr style = "background: white"><th>WindSpeed</th><td>' + data.currently.windSpeed + '</td>'
               + '<tr><th>Summary</th><td>' + data.daily.summary +'</td></tr></table>';
 
           $('#weather_results').append(html);
-            
-            
           }
         });
-
-         
         // ******************************************************
       };
 

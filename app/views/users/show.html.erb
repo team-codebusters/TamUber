@@ -270,44 +270,44 @@
   
   
 <script type = "text/javascript" language = "javascript">
-  $(document).ready(function() {
+//   $(document).ready(function() {
 
-      function update_values(){
-                var proxy = 'https://cors-anywhere.herokuapp.com/';
+//       function update_values(){
+//                 var proxy = 'https://cors-anywhere.herokuapp.com/';
                 
-                try{
-                    $.ajax({
-                    url: proxy + 'http://47.218.218.78:8080/car_info.json',
-                    success:function(data1) { console.log(data1); 
+//                 try{
+//                     $.ajax({
+//                     url: proxy + 'http://47.218.218.78:8080/car_info.json',
+//                     success:function(data1) { console.log(data1); 
                     
                     
-                    past_str = data1['time'].split("_");
-                    var past = new Date(past_str[0], past_str[1] - 1, past_str[2], past_str[3], past_str[4],past_str[5]).getTime();
-                    var now = new Date().getTime();
-                    var msec = now - past;
+//                     past_str = data1['time'].split("_");
+//                     var past = new Date(past_str[0], past_str[1] - 1, past_str[2], past_str[3], past_str[4],past_str[5]).getTime();
+//                     var now = new Date().getTime();
+//                     var msec = now - past;
                     
-                    var hh = Math.floor(msec / 1000 / 60 / 60);
-                    msec -= hh * 1000 * 60 * 60;
-                    var mm = Math.floor(msec / 1000 / 60);
-                    msec -= mm * 1000 * 60;
-                    var ss = Math.floor(msec / 1000);
-                    msec -= ss * 1000
+//                     var hh = Math.floor(msec / 1000 / 60 / 60);
+//                     msec -= hh * 1000 * 60 * 60;
+//                     var mm = Math.floor(msec / 1000 / 60);
+//                     msec -= mm * 1000 * 60;
+//                     var ss = Math.floor(msec / 1000);
+//                     msec -= ss * 1000
                       
-                    $('#time_diff').html("Hour:"+ hh +" Minute:" + mm + " Second:"+ss); 
-                    $('#tire_pressure').html( data1['tire pressure']);
-                    $('#battery_level').html( data1['battery']);
-                    $('#lidar_status').html( data1['lidar status']);
-                    setTimeout(update_values,5000);}
-                    });
-                }
+//                     $('#time_diff').html("Hour:"+ hh +" Minute:" + mm + " Second:"+ss); 
+//                     $('#tire_pressure').html( data1['tire pressure']);
+//                     $('#battery_level').html( data1['battery']);
+//                     $('#lidar_status').html( data1['lidar status']);
+//                     setTimeout(update_values,5000);}
+//                     });
+//                 }
                 
-        };
-      $(document).ready(function(){
-      setTimeout(update_values,5000);
-      });
+//         };
+//       $(document).ready(function(){
+//       setTimeout(update_values,5000);
+//       });
        
-      });
-</script>
+//       });
+ </script>
   
   
   <script>

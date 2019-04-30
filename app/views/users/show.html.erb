@@ -187,17 +187,18 @@
   <div id="dash">
     <h2 > Dashboard</h2>
     <table class="table table-striped" >
+      <div>Last update:<%= '%.0f' %@vehicle_stats['time'] =%> minutes</div>
       <tr>
         <td> Tire Pressure</td>
-        <td id="tire_pressure" ><%= @vehicle_stats.try(:tire_pressure) =%></td>
+        <td id="tire_pressure" ><%= @vehicle_stats['tire_pressure'] =%></td>
       </tr>
       <tr>
         <td>Battery Level</td>
-        <td id="battery_level"><%= @vehicle_stats.try(:battery_level) %></td>
+        <td id="battery_level"><%= @vehicle_stats['battery_level'] %></td>
       </tr>
       <tr>
         <td>Lidar Status</td>
-        <td id="lidar_status"><%= @vehicle_stats.try(:lidar_status) %></td>
+        <td id="lidar_status"><%= @vehicle_stats['lidar_status'] %></td>
       </tr>
     </table>
   </div>

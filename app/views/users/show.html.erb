@@ -282,14 +282,10 @@
                     
                     
                     past_str = data1['time'].split("_");
-                    var past = new Date(past_str[0], past_str[1] - 1, past_str[2], past_str[3], past_str[4],past_str[5]).getTime();
+                    var past = new Date(past_str[0], past_str[1]-1, past_str[2], past_str[3], past_str[4],past_str[5]).getTime();
                     var now = new Date().getTime();
-                    var msec = 0;
-                    
-                    var msec = now - past;
-                    var hh=0;
-                    var mm=0;
-                    var ss= 0;
+                    var msec = now - past+1;
+              
                     
                     hh = Math.floor(msec / 1000 / 60 / 60);
                     msec -= hh * 1000 * 60 * 60;

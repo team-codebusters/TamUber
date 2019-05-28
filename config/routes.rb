@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  # TO DO set the heroku url below
+  default_url_options :host => 'http://tamuber123.herokuapp.com/'
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root   'static_pages#home'
+  
+  get 'password_resets/new'
+  get '/edit',    to: 'users#edit'
   get    '/help',    to: 'static_pages#help'
   get    '/checklist',    to: 'static_pages#checklist'
   post   '/checklist',    to: 'test#create'
@@ -13,4 +20,5 @@ Rails.application.routes.draw do
   post '/call', to: 'twilio#call', as: 'call'
   post '/connect/:sales_number', to: 'twilio#connect', as: 'connect'
   resources :users
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

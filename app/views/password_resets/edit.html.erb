@@ -1,0 +1,31 @@
+<% provide(:title, 'Reset password') %>
+
+<style type = "text/css">
+    html, body {
+        /*height: 100%;*/
+        /*margin: 0;*/
+        /*padding: 0;*/
+        background-image: url(http://2.bp.blogspot.com/-OPYxCQCc4ao/UDBTISXA42I/AAAAAAAAAgk/smpKqpavnSs/s1600/tamu-1.jpg);
+        background-size: cover;
+      }
+</style>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style = "background:#e2e1e0;
+  opacity: 0.8; margin-top: 50px">
+    <h1>Reset password</h1>
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= hidden_field_tag :email, @user.email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Update password", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>

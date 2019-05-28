@@ -1,9 +1,84 @@
 <% provide(:title, "Safety Driver") %>
+<style type="text/css">
+html, body {
+    margin-right: 0px;
+    width:100%;
+    height: 100%;
+}
+#da{ 
+ position:relative;
+ }
+#dh { 
+ position:absolute;
+ text-align:center;
+  height:50%;
+ width:100%; 
+ padding:15%;
+}
 
-<div class="center jumbotron">
-  <h1>Welcome to TamUber</h1>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+.container{
+  margin-right:auto;
+  margin-left:auto;
+  padding-right:0;
+  padding-left:0;
+} 
+ 
+video {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 35px;
+}
+.video1{
+  width:100%;
+  height:auto;
+  background-size:;
+}
+.words1{
+      font-size: 10px;
+   letter-spacing: 15px;
+   color: white;
+   top:10%;
+   left: 30%;
+      }
+.words2{
+      font-size: 20px;
+   letter-spacing: 1px;
+   /*position: absolute;*/
+   display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+
+</style>
+<body>
   
-  <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary" %>
+  <section class ="container">
+  <div id="da" style="display: block;" class = "video1">
+  <video autoplay="autoplay" loop="loop" muted="muted" preload="metadata" src="https://player.vimeo.com/external/264127147.hd.mp4?s=b19c0d16533f924d2c08dbb02fc46cc6191bca76&amp;profile_id=174">
+  Texas A&amp;M video of bluebonnets across campus
+  </video>
+  <div id = "dh">
+  <div class="words1">
+  <h1><span>Welcome to</span> Welcome to TamUber</h1>
+  </div>
+  <center class="words2">
+  <%= link_to "Sign in!", login_path, class: "btn btn-lg btn-primary"%>
+  </center>
+  </div>
+  <!--<div class="row">-->
+  <!--<div class="vertical-center site-name">-->
+  <!--<div class="small-12 small-centered columns">-->
   
-</div>
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="time">-->
+  <!--  <span id="weather"> &nbsp; </span><span id="human-time">Sun April 7, 2019 | 4:11 PM CDT-->
+  <!--  </span>-->
+  <!--</div>-->
+  </div>
+  </section>
+</body>

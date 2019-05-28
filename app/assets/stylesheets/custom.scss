@@ -4,12 +4,12 @@
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
-section {
-  overflow: auto;
-}
+// section {
+//   overflow: auto;
+// }
 
 textarea {
   resize: vertical;
@@ -55,7 +55,7 @@ p {
 #logo {
   float: left;
   margin-right: 12px;
-  font-size: 1.7em;
+  font-size: 1.3em;
   color: #fff;
   // text-transform: uppercase;
   letter-spacing: -1px;
@@ -71,11 +71,12 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 70%;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   // color: #777;
   color: rgb(128,0,0);
+  
 }
 
 footer a {
@@ -200,8 +201,8 @@ input {
 }
 
 .navbar-inverse {
-     background-color: rgb(128,0,0);
-     border-color: #080808;
+    background-color: rgb(128,0,0);
+    border-color: #080808;
 }
 
 
@@ -231,5 +232,6 @@ label {
   display:block
 }
 #form-switch:checked~#login-form {
-  display:none
+  display:none;
+  color:red;
 }
